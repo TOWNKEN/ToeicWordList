@@ -1,13 +1,13 @@
 [
 	{
-		Title: "11/11 補充單字"
-		Week:1,
-		WordList:[
+		"Title": "11/11 補充單字"
+		"Week": "1",
+		"WordList":[
 		{
-			Eng_Word:"As well as",
-			Ch_Word:"等同/也",
-			Eng_Sentence:"He was suffering from shock as well as the after-effects of drugs.",
-			Ch_Sentence:"她在毒品副作用發作的同時還引發了休克。"
+			"Eng_Word":"As well as",
+			"Ch_Word":"等同/也",
+			"Eng_Sentence":"He was suffering from shock as well as the after-effects of drugs.",
+			"Ch_Sentence":"她在毒品副作用發作的同時還引發了休克。"
 		}
 		]
 	}
