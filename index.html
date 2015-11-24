@@ -73,11 +73,11 @@
 
 
             $.each(item.WordList, function (j, Worditem) {
-                var strURL = 'http://translate.google.com.tw/translate_tts?q=' + Worditem.Eng_Word + '&tl=en';
+              //  var strURL = 'http://translate.google.com.tw/translate_tts?q=' + Worditem.Eng_Word + '&tl=en';
 
-                var embed = '<p><embed src="' + strURL + '"/></p>';
-                var pSay =' <input  id="btnSayIt" value="發音" onclick="'+'Say(\'' + Worditem.Eng_Word + '\');'+'" type="button" ></input>';
-                $("#divContent").append('<div class="col-lg-4 col-sm-6 text-center"><h3>'+Worditem.Eng_Word +'<small>'+Worditem.Ch_Word+pSay+'</small></h3><p>'+Worditem.Eng_Sentence+'</p><p>'+Worditem.Ch_Sentence+'</p></div>');
+               // var embed = '<p><embed src="' + strURL + '"/></p>';
+               // var pSay =' <input  id="btnSayIt" value="發音" onclick="'+'Say(\'' + Worditem.Eng_Word + '\');'+'" type="button" ></input>';
+                $("#divContent").append('<div class="col-lg-4 col-sm-6 text-center"><h3>'+Worditem.Eng_Word +'<small>'+Worditem.Ch_Word+'</small></h3><p>'+Worditem.Eng_Sentence+'</p><p>'+Worditem.Ch_Sentence+'</p></div>');
 
             });
 
