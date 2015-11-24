@@ -18,22 +18,65 @@
     <link href="css/round-about.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-         $(document).ready(function () {
+        $(document).ready(function () {
             $.ajax({
                 url: "http://townken.github.io/ToeicWordList/toeic.json",
-                type: "POST",
-                dataType: "text",
+                type: "Get",
+                dataType: "json",
                 async: false,
                 success: function (data) {
-                    console.log(data);
+                    array = data.reverse();
+
+                    ddl(array);
+                    GetWeekData(array[0].Week);
                 },
 
                 error: function () {
                     alert("ERROR!!!", "ERROR!!!");
                 }
             });
-          
+
         });
+
+        var BindWeekData = function() {
+              var weekid = $('#ddlweek').val();
+              GetWeekData(weekid);
+
+        }
+
+        var ddl = function(array){
+            $("#ddlweek option").remove();
+
+            $.each(array, function (i, item) {
+                $("#ddlweek").append('<option value="' + item.Week + '">' + item.Title + '</option>');
+            });
+
+
+        }
+
+             //取得此周內容
+        var GetWeekData = function(week){
+                $.each(array, function (i, item) {
+                       if(item.Week == week )
+                       {
+                         Displaytemplate(item);
+                       }
+                    });
+            }       
+
+
+        var Displaytemplate = function(item){
+            $("#divContent").children().remove();
+
+            $("#divContent").append('<div class="col-lg-12"><h2 class="page-header">'+item.Title+'</h2></div>');
+
+
+            $.each(item.WordList, function (j, Worditem) {
+                $("#divContent").append('<div class="col-lg-4 col-sm-6 text-center"><h3>'+Worditem.Eng_Word+'<small>'+Worditem.Ch_Word+'</small></h3><p>'+Worditem.Eng_Sentence+'</p><p>'+Worditem.Worditem+'</p></div>');
+
+            });
+
+        }
     </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,14 +128,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">高應大多益課程
-                    <small></small>
+                   <select id="ddlweek" onchange="BindWeekData(event);" name="weel">
+　                  
+                    </select>
                 </h1>
                 <p></p>
             </div>
         </div>
 
         <!-- Team Members Row -->
-        <div class="row">
+        <!--<div id="divContent" class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">11/11 補充單字</h2>
             </div>
@@ -103,48 +148,11 @@
                 <p>He was suffering from shock as well as the after-effects of drugs.</p>
                 <p>她在毒品副作用發作的同時還引發了休克。</p>
             </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-               
-                <h3>Messenger 
-                    <small>信使/通訊兵</small>
-                </h3>
-                <p>The receptionist recognized him at once.</p>
-                <p>接待員一眼就認出她了。</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-              
-                <h3>Annoying 
-                    <small>討厭的/惱人的</small>
-                </h3>
-                <p>The annoying thing about the scheme is that it’s confusing.</p>
-                <p>這項計畫讓人討厭的地方是它讓人一頭霧水。</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-              
-                <h3>Put someone through 
-                    <small>打給某個人 </small>
-                </h3>
-                <p>Can you put me through to customer services,please?</p>
-                <p>請幫我打給某個人好嗎?</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-              
-                <h3>Stuttgart 
-                    <small>斯圖卡特</small>
-                </h3>
-                <p>I took the fast train to Stuttgart at 27th.</p>
-                <p>我乘坐二十七號的的晚間快車到斯圖卡特。</p>
-            </div>
-            <div class="col-lg-4 col-sm-6 text-center">
-               
-                <h3>Banquet 
-                    <small>宴會/請客/酒席</small>
-                </h3>
-                <p>He entertained me with a banquet.</p>
-                <p>他以宴會款待我們。</p>
-            </div>
-        </div>
+           
+        </div>-->
+            <div id="divContent" class="row" >
 
+            </div>
         <hr>
 
         <!-- Footer -->
