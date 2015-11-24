@@ -16,7 +16,25 @@
 
     <!-- Custom CSS -->
     <link href="css/round-about.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+         $(document).ready(function () {
+            $.ajax({
+                url: "http://townken.github.io/ToeicWordList/toeic.json",
+                type: "POST",
+                dataType: "text",
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                },
 
+                error: function () {
+                    alert("ERROR!!!", "ERROR!!!");
+                }
+            });
+          
+        });
+    </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
