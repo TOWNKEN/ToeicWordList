@@ -1293,7 +1293,7 @@ h6,
 }
 p {
   margin: 0 0 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .lead {
   margin-bottom: 20px;
@@ -1451,6 +1451,7 @@ dd {
   .dl-horizontal dt {
     float: left;
     width: 160px;
+    height: 200px;
     overflow: hidden;
     clear: left;
     text-align: right;
@@ -1794,6 +1795,7 @@ pre code {
   }
   .col-sm-6 {
     width: 50%;
+    height: 200px;
   }
   .col-sm-5 {
     width: 41.66666667%;
@@ -2116,6 +2118,7 @@ pre code {
   }
   .col-lg-4 {
     width: 33.33333333%;
+    height: 200px;
   }
   .col-lg-3 {
     width: 25%;
